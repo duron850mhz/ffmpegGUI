@@ -2,7 +2,7 @@
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
+    'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -14,179 +14,229 @@ Partial Class frmMain
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
+    'Windows フォーム デザイナーで必要です。
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
+    'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
+    'Windows フォーム デザイナーを使用して変更できます。  
+    'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnOK = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.lstTarget = New System.Windows.Forms.ListBox()
+        Me.lblTarget = New System.Windows.Forms.Label()
+        Me.lblExtract = New System.Windows.Forms.Label()
+        Me.txtExtract = New System.Windows.Forms.TextBox()
+        Me.btnExtractRef = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
+        Me.btnQuit = New System.Windows.Forms.Button()
+        Me.pgb = New System.Windows.Forms.ProgressBar()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.lblFfmpegPath = New System.Windows.Forms.Label()
+        Me.txtFfmpegPath = New System.Windows.Forms.TextBox()
+        Me.btnFfmpegPathRef = New System.Windows.Forms.Button()
+        Me.lblFfmpegOption = New System.Windows.Forms.Label()
+        Me.txtFfmpegOption = New System.Windows.Forms.TextBox()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ffmpeg.exe"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(88, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(310, 20)
-        Me.TextBox1.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(404, 10)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(23, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "..."
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(404, 36)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(23, 23)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "..."
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Location = New System.Drawing.Point(88, 38)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(310, 20)
-        Me.TextBox2.TabIndex = 4
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 41)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "出力先"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 93)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "処理対象"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Location = New System.Drawing.Point(88, 64)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(339, 20)
-        Me.TextBox4.TabIndex = 7
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 67)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "オプション"
-        '
-        'btnOK
-        '
-        Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnOK.Location = New System.Drawing.Point(352, 415)
-        Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 23)
-        Me.btnOK.TabIndex = 10
-        Me.btnOK.Text = "実行"
-        Me.btnOK.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(12, 415)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 11
-        Me.btnCancel.Text = "終了"
-        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'lstTarget
         '
+        Me.lstTarget.AllowDrop = True
         Me.lstTarget.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstTarget.FormattingEnabled = True
-        Me.lstTarget.Location = New System.Drawing.Point(88, 90)
+        Me.lstTarget.ItemHeight = 12
+        Me.lstTarget.Location = New System.Drawing.Point(3, 15)
         Me.lstTarget.Name = "lstTarget"
-        Me.lstTarget.Size = New System.Drawing.Size(339, 316)
-        Me.lstTarget.TabIndex = 9
+        Me.lstTarget.Size = New System.Drawing.Size(280, 244)
+        Me.lstTarget.TabIndex = 0
+        '
+        'lblTarget
+        '
+        Me.lblTarget.AutoSize = True
+        Me.lblTarget.Location = New System.Drawing.Point(3, 0)
+        Me.lblTarget.Name = "lblTarget"
+        Me.lblTarget.Size = New System.Drawing.Size(116, 12)
+        Me.lblTarget.TabIndex = 1
+        Me.lblTarget.Text = "対象ファイル or フォルダ"
+        '
+        'lblExtract
+        '
+        Me.lblExtract.AutoSize = True
+        Me.lblExtract.Location = New System.Drawing.Point(3, 0)
+        Me.lblExtract.Name = "lblExtract"
+        Me.lblExtract.Size = New System.Drawing.Size(41, 12)
+        Me.lblExtract.TabIndex = 2
+        Me.lblExtract.Text = "出力先"
+        '
+        'txtExtract
+        '
+        Me.txtExtract.AllowDrop = True
+        Me.txtExtract.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtExtract.Location = New System.Drawing.Point(5, 15)
+        Me.txtExtract.Name = "txtExtract"
+        Me.txtExtract.Size = New System.Drawing.Size(255, 19)
+        Me.txtExtract.TabIndex = 3
+        '
+        'btnExtractRef
+        '
+        Me.btnExtractRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExtractRef.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnExtractRef.Location = New System.Drawing.Point(260, 15)
+        Me.btnExtractRef.Name = "btnExtractRef"
+        Me.btnExtractRef.Size = New System.Drawing.Size(19, 19)
+        Me.btnExtractRef.TabIndex = 4
+        Me.btnExtractRef.Text = "..."
+        Me.btnExtractRef.UseVisualStyleBackColor = True
+        '
+        'btnOK
+        '
+        Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnOK.Location = New System.Drawing.Point(509, 278)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.TabIndex = 5
+        Me.btnOK.Text = "実行"
+        Me.btnOK.UseVisualStyleBackColor = True
+        '
+        'btnQuit
+        '
+        Me.btnQuit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnQuit.Location = New System.Drawing.Point(12, 278)
+        Me.btnQuit.Name = "btnQuit"
+        Me.btnQuit.Size = New System.Drawing.Size(75, 23)
+        Me.btnQuit.TabIndex = 6
+        Me.btnQuit.Text = "終了"
+        Me.btnQuit.UseVisualStyleBackColor = True
+        '
+        'pgb
+        '
+        Me.pgb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pgb.Location = New System.Drawing.Point(93, 278)
+        Me.pgb.Name = "pgb"
+        Me.pgb.Size = New System.Drawing.Size(410, 23)
+        Me.pgb.Step = 1
+        Me.pgb.TabIndex = 7
+        Me.pgb.Visible = False
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SplitContainer1.Location = New System.Drawing.Point(12, 12)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lblTarget)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lstTarget)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblFfmpegOption)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.txtFfmpegOption)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnFfmpegPathRef)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblFfmpegPath)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.txtFfmpegPath)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblExtract)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.txtExtract)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnExtractRef)
+        Me.SplitContainer1.Size = New System.Drawing.Size(572, 260)
+        Me.SplitContainer1.SplitterDistance = 286
+        Me.SplitContainer1.TabIndex = 8
+        '
+        'lblFfmpegPath
+        '
+        Me.lblFfmpegPath.AutoSize = True
+        Me.lblFfmpegPath.Location = New System.Drawing.Point(3, 37)
+        Me.lblFfmpegPath.Name = "lblFfmpegPath"
+        Me.lblFfmpegPath.Size = New System.Drawing.Size(94, 12)
+        Me.lblFfmpegPath.TabIndex = 5
+        Me.lblFfmpegPath.Text = "ffmpeg.exeの場所"
+        '
+        'txtFfmpegPath
+        '
+        Me.txtFfmpegPath.AllowDrop = True
+        Me.txtFfmpegPath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtFfmpegPath.Location = New System.Drawing.Point(5, 52)
+        Me.txtFfmpegPath.Name = "txtFfmpegPath"
+        Me.txtFfmpegPath.Size = New System.Drawing.Size(255, 19)
+        Me.txtFfmpegPath.TabIndex = 6
+        '
+        'btnFfmpegPathRef
+        '
+        Me.btnFfmpegPathRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnFfmpegPathRef.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnFfmpegPathRef.Location = New System.Drawing.Point(260, 52)
+        Me.btnFfmpegPathRef.Name = "btnFfmpegPathRef"
+        Me.btnFfmpegPathRef.Size = New System.Drawing.Size(19, 19)
+        Me.btnFfmpegPathRef.TabIndex = 7
+        Me.btnFfmpegPathRef.Text = "..."
+        Me.btnFfmpegPathRef.UseVisualStyleBackColor = True
+        '
+        'lblFfmpegOption
+        '
+        Me.lblFfmpegOption.AutoSize = True
+        Me.lblFfmpegOption.Location = New System.Drawing.Point(3, 74)
+        Me.lblFfmpegOption.Name = "lblFfmpegOption"
+        Me.lblFfmpegOption.Size = New System.Drawing.Size(113, 12)
+        Me.lblFfmpegOption.TabIndex = 8
+        Me.lblFfmpegOption.Text = "ffmpeg.exeのオプション"
+        '
+        'txtFfmpegOption
+        '
+        Me.txtFfmpegOption.AllowDrop = True
+        Me.txtFfmpegOption.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtFfmpegOption.Location = New System.Drawing.Point(5, 89)
+        Me.txtFfmpegOption.Name = "txtFfmpegOption"
+        Me.txtFfmpegOption.Size = New System.Drawing.Size(274, 19)
+        Me.txtFfmpegOption.TabIndex = 9
         '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(439, 450)
-        Me.Controls.Add(Me.lstTarget)
-        Me.Controls.Add(Me.btnCancel)
+        Me.CancelButton = Me.btnQuit
+        Me.ClientSize = New System.Drawing.Size(596, 313)
+        Me.Controls.Add(Me.SplitContainer1)
+        Me.Controls.Add(Me.pgb)
+        Me.Controls.Add(Me.btnQuit)
         Me.Controls.Add(Me.btnOK)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
-        Me.Text = "ffmpegGUI"
+        Me.Text = "ffmepgGUI"
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents btnOK As Button
-    Friend WithEvents btnCancel As Button
     Friend WithEvents lstTarget As ListBox
+    Friend WithEvents lblTarget As Label
+    Friend WithEvents lblExtract As Label
+    Friend WithEvents txtExtract As TextBox
+    Friend WithEvents btnExtractRef As Button
+    Friend WithEvents btnOK As Button
+    Friend WithEvents btnQuit As Button
+    Friend WithEvents pgb As ProgressBar
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents btnFfmpegPathRef As Button
+    Friend WithEvents lblFfmpegPath As Label
+    Friend WithEvents txtFfmpegPath As TextBox
+    Friend WithEvents lblFfmpegOption As Label
+    Friend WithEvents txtFfmpegOption As TextBox
 End Class

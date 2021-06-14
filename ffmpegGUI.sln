@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ffmpegGUI", "ffmpegGUI\ffmpegGUI.vbproj", "{ADE60F93-6546-44B3-9E60-0DAB5C4CA8AB}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ffmpegGUI", "ffmpegGUI\ffmpegGUI.vbproj", "{6806752F-9019-486D-A8E4-DB0B8CC1DF6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ADE60F93-6546-44B3-9E60-0DAB5C4CA8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADE60F93-6546-44B3-9E60-0DAB5C4CA8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADE60F93-6546-44B3-9E60-0DAB5C4CA8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADE60F93-6546-44B3-9E60-0DAB5C4CA8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6806752F-9019-486D-A8E4-DB0B8CC1DF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6806752F-9019-486D-A8E4-DB0B8CC1DF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6806752F-9019-486D-A8E4-DB0B8CC1DF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6806752F-9019-486D-A8E4-DB0B8CC1DF6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7B4DA698-154A-4C96-A543-D5DFFC04975F}
+		SolutionGuid = {70AD86F2-9760-42B1-83F3-1A7ACB8F98DA}
 	EndGlobalSection
 EndGlobal
