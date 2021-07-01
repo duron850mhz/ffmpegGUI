@@ -6,13 +6,13 @@ Public Class frmMain
         write
     End Enum
 
+    Shared LG_strResult As String = ""
+
     ''' <summary>
     ''' 初期化
     ''' </summary>
     Private Sub I_Init()
         lstTarget.Items.Clear()
-        pgb.Value = 0
-        pgb.Visible = False
     End Sub
 
     ''' <summary>
@@ -59,12 +59,28 @@ Public Class frmMain
             If File.Exists(strEnc) = True Then
                 File.Delete(strEnc)
             End If
-            'れっつごー
-            Dim psi As New System.Diagnostics.ProcessStartInfo()
-            psi.FileName = txtFfmpegPath.Text
-            psi.Arguments = " -i " & """" & strTarget & """ " & txtFfmpegOption.Text & " """ & strEnc & """"
-            psi.WindowStyle = ProcessWindowStyle.Minimized
-            Dim p As Process = Process.Start(psi)
+
+            Dim p As New System.Diagnostics.Process()
+            'exe
+            p.StartInfo.FileName = txtFfmpegPath.Text
+            'option
+            p.StartInfo.Arguments = " -i " & """" & strTarget & """ " & txtFfmpegOption.Text & " """ & strEnc & """"
+            '標準＆エラー出力
+            p.StartInfo.UseShellExecute = False
+            p.StartInfo.RedirectStandardOutput = True
+            p.StartInfo.RedirectStandardError = True
+            p.StartInfo.RedirectStandardInput = False
+            'ウインドウ無し
+            p.StartInfo.CreateNoWindow = True
+            '非同期呼び出し用ハンドラ
+            AddHandler p.OutputDataReceived, AddressOf p_OutputDataReceived
+            AddHandler p.ErrorDataReceived, AddressOf p_ErrorDataReceived
+            'ごー
+            p.Start()
+            '非同期呼び出し
+            p.BeginOutputReadLine()
+            p.BeginErrorReadLine()
+            '終わるまで待つのぢゃ
             p.WaitForExit()
             '元ファイルの日時にあわせるで
             File.SetLastWriteTime(strEnc, dtOrg)
@@ -76,6 +92,25 @@ Public Class frmMain
         Return bRet
     End Function
 
+    ''' <summary>
+    ''' 標準出力読み取り
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Shared Sub p_OutputDataReceived(sender As Object, e As System.Diagnostics.DataReceivedEventArgs)
+        '出力された文字列を表示する
+        Console.WriteLine(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' エラー出力読み取り
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Shared Sub p_ErrorDataReceived(sender As Object, e As System.Diagnostics.DataReceivedEventArgs)
+        LG_strResult &= e.Data & vbNewLine
+        Console.WriteLine("Err>{0}", e.Data)
+    End Sub
     ''' <summary>
     ''' Form Load
     ''' </summary>
@@ -260,6 +295,37 @@ Public Class frmMain
                 strMsg = "変換終了"
                 MessageBox.Show(strMsg, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' ろぐびゅー
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnLog_Click(sender As Object, e As EventArgs) Handles btnLog.Click
+        If LG_strResult <> "" Then
+            Try
+                'ログパス取得
+                Dim strPath As String = System.Reflection.Assembly.GetExecutingAssembly().Location
+                Dim strLogPath As String = Path.Combine(Application.StartupPath, Path.GetFileNameWithoutExtension(strPath) & ".log")
+
+                'あったら消して
+                If File.Exists(strLogPath) = True Then
+                    File.Delete(strLogPath)
+                End If
+
+                'カキコミー
+                Using sw As New StreamWriter(strLogPath, True, System.Text.Encoding.UTF8)
+                    sw.Write(LG_strResult)
+                    sw.Flush()
+                End Using
+
+                '開くよ
+                Dim p As Process = Process.Start(strLogPath)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
         End If
     End Sub
 End Class
