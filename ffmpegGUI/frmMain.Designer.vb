@@ -36,6 +36,9 @@ Partial Class frmMain
         Me.lblFfmpegPath = New System.Windows.Forms.Label()
         Me.txtFfmpegPath = New System.Windows.Forms.TextBox()
         Me.btnLog = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.rbFront = New System.Windows.Forms.RadioButton()
+        Me.rbRear = New System.Windows.Forms.RadioButton()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -100,7 +103,7 @@ Partial Class frmMain
         Me.btnOK.Location = New System.Drawing.Point(509, 278)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
-        Me.btnOK.TabIndex = 2
+        Me.btnOK.TabIndex = 1
         Me.btnOK.Text = "実行"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -111,7 +114,7 @@ Partial Class frmMain
         Me.btnQuit.Location = New System.Drawing.Point(12, 278)
         Me.btnQuit.Name = "btnQuit"
         Me.btnQuit.Size = New System.Drawing.Size(75, 23)
-        Me.btnQuit.TabIndex = 0
+        Me.btnQuit.TabIndex = 4
         Me.btnQuit.Text = "終了"
         Me.btnQuit.UseVisualStyleBackColor = True
         '
@@ -130,6 +133,8 @@ Partial Class frmMain
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.rbRear)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.rbFront)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblFfmpegOption)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtFfmpegOption)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnFfmpegPathRef)
@@ -140,15 +145,15 @@ Partial Class frmMain
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnExtractRef)
         Me.SplitContainer1.Size = New System.Drawing.Size(572, 260)
         Me.SplitContainer1.SplitterDistance = 286
-        Me.SplitContainer1.TabIndex = 1
+        Me.SplitContainer1.TabIndex = 0
         '
         'lblFfmpegOption
         '
         Me.lblFfmpegOption.AutoSize = True
-        Me.lblFfmpegOption.Location = New System.Drawing.Point(3, 74)
+        Me.lblFfmpegOption.Location = New System.Drawing.Point(3, 130)
         Me.lblFfmpegOption.Name = "lblFfmpegOption"
         Me.lblFfmpegOption.Size = New System.Drawing.Size(113, 12)
-        Me.lblFfmpegOption.TabIndex = 6
+        Me.lblFfmpegOption.TabIndex = 8
         Me.lblFfmpegOption.Text = "ffmpeg.exeのオプション"
         '
         'txtFfmpegOption
@@ -156,29 +161,29 @@ Partial Class frmMain
         Me.txtFfmpegOption.AllowDrop = True
         Me.txtFfmpegOption.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtFfmpegOption.Location = New System.Drawing.Point(5, 89)
+        Me.txtFfmpegOption.Location = New System.Drawing.Point(5, 145)
         Me.txtFfmpegOption.Name = "txtFfmpegOption"
         Me.txtFfmpegOption.Size = New System.Drawing.Size(274, 19)
-        Me.txtFfmpegOption.TabIndex = 7
+        Me.txtFfmpegOption.TabIndex = 9
         '
         'btnFfmpegPathRef
         '
         Me.btnFfmpegPathRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFfmpegPathRef.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnFfmpegPathRef.Location = New System.Drawing.Point(260, 52)
+        Me.btnFfmpegPathRef.Location = New System.Drawing.Point(260, 108)
         Me.btnFfmpegPathRef.Name = "btnFfmpegPathRef"
         Me.btnFfmpegPathRef.Size = New System.Drawing.Size(19, 19)
-        Me.btnFfmpegPathRef.TabIndex = 5
+        Me.btnFfmpegPathRef.TabIndex = 7
         Me.btnFfmpegPathRef.Text = "..."
         Me.btnFfmpegPathRef.UseVisualStyleBackColor = True
         '
         'lblFfmpegPath
         '
         Me.lblFfmpegPath.AutoSize = True
-        Me.lblFfmpegPath.Location = New System.Drawing.Point(3, 37)
+        Me.lblFfmpegPath.Location = New System.Drawing.Point(3, 93)
         Me.lblFfmpegPath.Name = "lblFfmpegPath"
         Me.lblFfmpegPath.Size = New System.Drawing.Size(94, 12)
-        Me.lblFfmpegPath.TabIndex = 3
+        Me.lblFfmpegPath.TabIndex = 5
         Me.lblFfmpegPath.Text = "ffmpeg.exeの場所"
         '
         'txtFfmpegPath
@@ -186,10 +191,10 @@ Partial Class frmMain
         Me.txtFfmpegPath.AllowDrop = True
         Me.txtFfmpegPath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtFfmpegPath.Location = New System.Drawing.Point(5, 52)
+        Me.txtFfmpegPath.Location = New System.Drawing.Point(5, 108)
         Me.txtFfmpegPath.Name = "txtFfmpegPath"
         Me.txtFfmpegPath.Size = New System.Drawing.Size(255, 19)
-        Me.txtFfmpegPath.TabIndex = 4
+        Me.txtFfmpegPath.TabIndex = 6
         '
         'btnLog
         '
@@ -197,9 +202,41 @@ Partial Class frmMain
         Me.btnLog.Location = New System.Drawing.Point(428, 278)
         Me.btnLog.Name = "btnLog"
         Me.btnLog.Size = New System.Drawing.Size(75, 23)
-        Me.btnLog.TabIndex = 3
+        Me.btnLog.TabIndex = 2
         Me.btnLog.Text = "ログ表示"
         Me.btnLog.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Location = New System.Drawing.Point(347, 278)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 3
+        Me.btnClear.Text = "初期化"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'rbFront
+        '
+        Me.rbFront.AutoSize = True
+        Me.rbFront.Checked = True
+        Me.rbFront.Location = New System.Drawing.Point(5, 40)
+        Me.rbFront.Name = "rbFront"
+        Me.rbFront.Size = New System.Drawing.Size(47, 16)
+        Me.rbFront.TabIndex = 3
+        Me.rbFront.TabStop = True
+        Me.rbFront.Text = "前方"
+        Me.rbFront.UseVisualStyleBackColor = True
+        '
+        'rbRear
+        '
+        Me.rbRear.AutoSize = True
+        Me.rbRear.Location = New System.Drawing.Point(58, 40)
+        Me.rbRear.Name = "rbRear"
+        Me.rbRear.Size = New System.Drawing.Size(47, 16)
+        Me.rbRear.TabIndex = 4
+        Me.rbRear.Text = "後方"
+        Me.rbRear.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -207,6 +244,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnQuit
         Me.ClientSize = New System.Drawing.Size(596, 313)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnLog)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.btnQuit)
@@ -237,4 +275,7 @@ Partial Class frmMain
     Friend WithEvents lblFfmpegOption As Label
     Friend WithEvents txtFfmpegOption As TextBox
     Friend WithEvents btnLog As Button
+    Friend WithEvents btnClear As Button
+    Friend WithEvents rbRear As RadioButton
+    Friend WithEvents rbFront As RadioButton
 End Class

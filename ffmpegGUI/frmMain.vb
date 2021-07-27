@@ -7,6 +7,7 @@ Public Class frmMain
     End Enum
 
     Shared LG_strResult As String = ""
+    Shared LG_strExtractPath As String = ""
 
     ''' <summary>
     ''' 初期化
@@ -52,7 +53,7 @@ Public Class frmMain
 
         Try
             'ファイルのフルパス取得
-            Dim strEnc As String = Path.Combine(txtExtract.Text, Path.ChangeExtension(Path.GetFileName(strTarget), ".mp4"))
+            Dim strEnc As String = Path.Combine(LG_strExtractPath, Path.ChangeExtension(Path.GetFileName(strTarget), ".mp4"))
             '元ファイルの日時覚えましょ
             Dim dtOrg As Date = File.GetLastWriteTime(strTarget)
             'あったら削除
@@ -276,6 +277,27 @@ Public Class frmMain
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         Dim strMsg As String = ""
 
+        '前 or 後
+        If rbFront.Checked = True Then
+            LG_strExtractPath = Path.Combine(txtExtract.Text, Date.Now.ToString("yyyyMMdd"), "F")
+        Else
+            LG_strExtractPath = Path.Combine(txtExtract.Text, Date.Now.ToString("yyyyMMdd"), "R")
+        End If
+
+        'なかったら作る
+        If Directory.Exists(LG_strExtractPath) = False Then
+            Directory.CreateDirectory(LG_strExtractPath)
+        Else
+            'なんかあるけど？
+            If Directory.EnumerateFileSystemEntries(LG_strExtractPath).Any = True Then
+                Dim strTmp As String = "指定フォルダ(" & LG_strExtractPath & ")は空ではありません。" & vbNewLine &
+                                       "続行してよろしいですか？"
+                If MessageBox.Show(strTmp, Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes Then
+                    Exit Sub
+                End If
+            End If
+        End If
+
         If lstTarget.Items.Count > 0 Then
             'るーぷ
             lstTarget.ClearSelected()
@@ -327,5 +349,14 @@ Public Class frmMain
                 MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
         End If
+    End Sub
+
+    ''' <summary>
+    ''' 初期化
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        lstTarget.Items.Clear()
     End Sub
 End Class
