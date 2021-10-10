@@ -112,6 +112,7 @@ Public Class frmMain
         LG_strResult &= e.Data & vbNewLine
         Console.WriteLine("Err>{0}", e.Data)
     End Sub
+
     ''' <summary>
     ''' Form Load
     ''' </summary>
@@ -270,10 +271,20 @@ Public Class frmMain
         End Using
     End Sub
 
+    ''' <summary>
+    ''' おしまいだー
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnQuit_Click(sender As Object, e As EventArgs) Handles btnQuit.Click
         Me.Close()
     End Sub
 
+    ''' <summary>
+    ''' れっつぱーりー
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         Dim strMsg As String = ""
 
